@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de edición · Nuestra Historia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>" />
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="admin-top">
+    <div class="admin-brand">
+      <span class="logo">💖</span>
+      <div>Panel de edición
+        <small>Sube fotos, música y edita todos los textos</small>
+      </div>
+    </div>
+    <div class="admin-actions">
+      <a class="btn btn-ghost" href="index.html" target="_blank">👁 Ver la web</a>
+      <button class="btn btn-ghost" id="export-btn">⬇ Copia de seguridad</button>
+      <label class="btn btn-ghost" style="position:relative; overflow:hidden;">
+        ⬆ Importar
+        <input type="file" id="import-input" accept="application/json" style="position:absolute; inset:0; opacity:0; cursor:pointer;" />
+      </label>
+      <button class="btn btn-danger" id="reset-btn">↺ Restablecer</button>
+      <button class="btn btn-ghost" id="publish-btn" title="Genera content.json para subir a internet">🌐 Publicar</button>
+      <button class="btn btn-main" id="save-btn">💾 Guardar</button>
+    </div>
+  </header>
+
+  <div class="admin-wrap">
+
+    <!-- Pestañas -->
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="general">⚙️ General</button>
+      <button class="tab" data-tab="timeline">❤️ Historia</button>
+      <button class="tab" data-tab="gallery">📸 Galería</button>
+      <button class="tab" data-tab="letters">💌 Cartas</button>
+      <button class="tab" data-tab="reasons">🌹 Razones</button>
+      <button class="tab" data-tab="scrapbook">✨ Recuerdos</button>
+      <button class="tab" data-tab="surprise">🎁 Sorpresa</button>
+      <button class="tab" data-tab="hundred">💖 100 razones</button>
+      <button class="tab" data-tab="stars">🌌 Cielo</button>
+      <button class="tab" data-tab="final">💬 Final</button>
+    </nav>
+
+    <!-- Contenido -->
+    <main>
+
+      <!-- GENERAL -->
+      <section class="panel active" data-panel="general">
+        <div class="panel-head"><h2>⚙️ Ajustes generales</h2><p>Lo esencial: bienvenida, fecha de inicio y música.</p></div>
+        <div class="card">
+          <div class="field">
+            <label>Texto de bienvenida (título grande)</label>
+            <input type="text" id="s-welcomeText" />
+          </div>
+          <div class="field">
+            <label>Texto del botón de bienvenida</label>
+            <input type="text" id="s-welcomeButton" />
+          </div>
+          <div class="field">
+            <label>💑 Fecha en la que empezasteis juntos (para el contador)</label>
+            <input type="datetime-local" id="s-startDate" />
+            <div class="hint">Se usa para calcular los días, horas, minutos y segundos juntos.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="field"><label>🎵 Título de la canción</label><input type="text" id="s-musicTitle" /></div>
+          <div class="field">
+            <label>🎵 Música de fondo (MP3)</label>
+            <div class="uploader" id="music-uploader">
+              <input type="file" id="music-file" accept="audio/*" />
+              <div class="up-icon">🎧</div>
+              <div class="up-text" id="music-name">Arrastra o pulsa para subir un MP3</div>
+            </div>
+            <div class="hint">También puedes borrar la música subida pulsando “Restablecer”.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section class="panel" data-panel="timeline">
+        <div class="panel-head"><h2>❤️ Nuestra Historia</h2><p>Momentos de vuestra línea del tiempo. Cada uno con fecha, título, descripción y foto.</p></div>
+        <div id="timeline-list"></div>
+        <div class="add-row"><button class="btn btn-ghost" id="add-timeline">＋ Añadir momento</button></div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="panel" data-panel="gallery">
+        <div class="panel-head"><h2>📸 Galería</h2><p>Sube todas las fotos que quieras. Puedes añadir un texto a cada una.</p></div>
+        <div class="gal-grid" id="gallery-grid"></div>
+      </section>
+
+      <!-- LETTERS -->
+      <section class="panel" data-panel="letters">
+        <div class="panel-head"><h2>💌 Cartas de amor</h2><p>Cada carta se muestra como un sobre que se abre.</p></div>
+        <div id="letters-list"></div>
+        <div class="add-row"><button class="btn btn-ghost" id="add-letter">＋ Añadir carta</button></div>
+      </section>
+
+      <!-- REASONS -->
+      <section class="panel" data-panel="reasons">
+        <div class="panel-head"><h2>🌹 Razones por las que te amo</h2><p>Frases cortas que aparecen como tarjetas.</p></div>
+        <div class="chips" id="reasons-chips"></div>
+        <div class="add-row"><button class="btn btn-ghost" id="add-reason">＋ Añadir razón</button></div>
+      </section>
+
+      <!-- SCRAPBOOK -->
+      <section class="panel" data-panel="scrapbook">
+        <div class="panel-head"><h2>✨ Nuestros recuerdos</h2><p>Estilo álbum: una foto y una notita en cada recuerdo.</p></div>
+        <div id="scrapbook-list"></div>
+        <div class="add-row"><button class="btn btn-ghost" id="add-scrap">＋ Añadir recuerdo</button></div>
+      </section>
+
+      <!-- SURPRISE -->
+      <section class="panel" data-panel="surprise">
+        <div class="panel-head"><h2>🎁 Caja sorpresa</h2><p>El mensaje que aparece al abrir la caja.</p></div>
+        <div class="card">
+          <div class="field"><label>Mensaje de la caja sorpresa</label><textarea id="s-surprise"></textarea></div>
+        </div>
+      </section>
+
+      <!-- HUNDRED -->
+      <section class="panel" data-panel="hundred">
+        <div class="panel-head"><h2>💖 100 razones para amarte</h2><p>Una razón aleatoria aparece cada vez que se pulsa “Descubrir”. Añade tantas como quieras.</p></div>
+        <div id="hundred-list"></div>
+        <div class="add-row">
+          <button class="btn btn-ghost" id="add-hundred">＋ Añadir razón</button>
+        </div>
+      </section>
+
+      <!-- STARS -->
+      <section class="panel" data-panel="stars">
+        <div class="panel-head"><h2>🌌 Cielo estrellado</h2><p>Frases que aparecen al pulsar cada estrella.</p></div>
+        <div id="stars-list"></div>
+        <div class="add-row"><button class="btn btn-ghost" id="add-star">＋ Añadir frase</button></div>
+      </section>
+
+      <!-- FINAL -->
+      <section class="panel" data-panel="final">
+        <div class="panel-head"><h2>💬 Mensaje final</h2><p>El texto emotivo del final. Cada línea aparte se muestra en su propio renglón.</p></div>
+        <div class="card">
+          <div class="field"><label>Mensaje final</label><textarea id="s-final" style="min-height:140px"></textarea></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Barra de estado de guardado -->
+  <div class="save-bar" id="save-bar">
+    <span class="dot"></span>
+    <small id="save-status">Todo guardado</small>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

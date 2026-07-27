@@ -1,0 +1,15 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencias / editores
+node_modules/
+.vscode/
+.idea/
+
+# Configuración local de Claude Code (no hace falta publicarla)
+.claude/
+
+# Copias de seguridad locales (opcional)
+nuestra-historia-copia.json

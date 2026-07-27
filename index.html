@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuestra Historia ❤️</title>
+  <meta name="description" content="Una web hecha con amor, solo para ti." />
+
+  <!-- Tipografías elegantes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>" />
+</head>
+<body>
+
+  <!-- Fondo de partículas y corazones -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ================= PANTALLA DE BIENVENIDA ================= -->
+  <section id="welcome">
+    <div class="welcome-inner">
+      <span class="beat">❤️</span>
+      <div class="welcome-badge script">Hola, mi amor…</div>
+      <h1 class="welcome-title" id="welcome-title">Para la persona más importante de mi vida ❤️</h1>
+      <p class="welcome-sub">He preparado algo muy especial para ti. Ponte cómoda y déjate llevar.</p>
+      <button class="btn-primary" id="open-btn">
+        <span class="spark"></span>
+        <span id="welcome-btn-text">Abrir nuestra historia</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= BARRA SUPERIOR ================= -->
+  <header class="topbar" id="topbar">
+    <a href="#top" class="brand">Nuestra Historia</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú">☰</button>
+    <nav class="nav-links" id="nav-links">
+      <a href="#historia">Historia</a>
+      <a href="#galeria">Galería</a>
+      <a href="#cartas">Cartas</a>
+      <a href="#razones">Razones</a>
+      <a href="#recuerdos">Recuerdos</a>
+      <a href="#contador">Contador</a>
+      <a href="#sorpresa">Sorpresa</a>
+      <a href="#cielo">Cielo</a>
+    </nav>
+  </header>
+
+  <!-- ================= REPRODUCTOR DE MÚSICA ================= -->
+  <div class="player paused" id="player">
+    <button class="player-btn" id="play-btn" aria-label="Reproducir música">▶</button>
+    <div class="player-info">
+      <small>Sonando</small>
+      <strong id="song-title">Nuestra canción</strong>
+    </div>
+    <div class="eq"><span></span><span></span><span></span><span></span></div>
+    <audio id="audio" loop preload="none"></audio>
+  </div>
+
+  <main id="top">
+
+    <!-- ❤️ NUESTRA HISTORIA -->
+    <section class="section" id="historia">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">El principio de todo</span>
+        <h2 class="section-title">Nuestra <span class="accent">Historia</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <!-- 📸 GALERÍA -->
+    <section class="section" id="galeria">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Momentos capturados</span>
+        <h2 class="section-title">Nuestra <span class="accent">Galería</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="gallery-grid" id="gallery"></div>
+    </section>
+
+    <!-- 💌 CARTAS -->
+    <section class="section" id="cartas">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Palabras del corazón</span>
+        <h2 class="section-title">Cartas de <span class="accent">Amor</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="letters-grid" id="letters"></div>
+    </section>
+
+    <!-- 🌹 RAZONES -->
+    <section class="section" id="razones">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Todo lo que eres</span>
+        <h2 class="section-title">Razones por las que <span class="accent">te amo</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="reasons-grid" id="reasons"></div>
+    </section>
+
+    <!-- ✨ RECUERDOS (SCRAPBOOK) -->
+    <section class="section" id="recuerdos">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Nuestro álbum</span>
+        <h2 class="section-title">Nuestros <span class="accent">Recuerdos</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="scrap-grid" id="scrapbook"></div>
+    </section>
+
+    <!-- ⏳ CONTADOR -->
+    <section class="section" id="contador">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">El tiempo a tu lado</span>
+        <h2 class="section-title">Tiempo <span class="accent">juntos</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="counter-wrap reveal">
+        <div class="counter" id="counter">
+          <div class="count-box"><div class="count-num" id="c-days">0</div><div class="count-label">Días</div></div>
+          <div class="count-box"><div class="count-num" id="c-hours">0</div><div class="count-label">Horas</div></div>
+          <div class="count-box"><div class="count-num" id="c-min">0</div><div class="count-label">Minutos</div></div>
+          <div class="count-box"><div class="count-num" id="c-sec">0</div><div class="count-label">Segundos</div></div>
+        </div>
+        <div class="counter-sub">…y cada segundo contigo vale la pena ❤️</div>
+      </div>
+    </section>
+
+    <!-- 🎁 CAJA SORPRESA -->
+    <section class="section" id="sorpresa">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Un regalito</span>
+        <h2 class="section-title">Caja <span class="accent">Sorpresa</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="gift-wrap reveal">
+        <div class="gift" id="gift">
+          <div class="gift-bow">🎀</div>
+          <div class="gift-lid"></div>
+          <div class="gift-box"></div>
+          <div class="gift-ribbon-v"></div>
+        </div>
+        <p class="gift-hint" id="gift-hint">Pulsa para abrir 🎁</p>
+        <div class="gift-message" id="gift-message"></div>
+      </div>
+    </section>
+
+    <!-- 💖 100 RAZONES -->
+    <section class="section" id="cien">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Sin fin</span>
+        <h2 class="section-title">100 razones para <span class="accent">amarte</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="hundred-wrap reveal">
+        <div class="reason-display" id="hundred-display">
+          <span class="num" id="hundred-num"></span>
+          <span class="txt" id="hundred-text">Pulsa el botón y descubre una razón ✨</span>
+        </div>
+        <button class="btn-primary" id="hundred-btn">Descubrir</button>
+        <div class="hundred-progress" id="hundred-progress"></div>
+      </div>
+    </section>
+
+    <!-- 🌌 CIELO ESTRELLADO -->
+    <section class="section" id="cielo">
+      <div class="section-head reveal">
+        <span class="section-eyebrow">Pide un deseo</span>
+        <h2 class="section-title">Cielo <span class="accent">estrellado</span></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="sky reveal" id="sky">
+        <div class="sky-hint">Toca una estrella ✨</div>
+        <div class="star-msg" id="star-msg"></div>
+      </div>
+    </section>
+
+    <!-- 💬 MENSAJE FINAL -->
+    <section class="section" id="final-sec">
+      <div class="final reveal" id="final">
+        <span class="section-eyebrow">Para terminar…</span>
+        <h2>Te amo <span class="accent">infinitamente</span></h2>
+        <p class="final-text" id="final-text"></p>
+        <div style="margin-top:24px"><span class="heart-big">❤️</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    Hecho con ❤️ solo para ti · <a href="admin.html">Panel de edición</a>
+  </footer>
+
+  <!-- ================= LIGHTBOX (GALERÍA) ================= -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lb-close" aria-label="Cerrar">✕</button>
+    <button class="lb-prev" id="lb-prev" aria-label="Anterior">‹</button>
+    <div>
+      <img id="lb-img" src="" alt="" />
+      <div class="lb-cap" id="lb-cap"></div>
+    </div>
+    <button class="lb-next" id="lb-next" aria-label="Siguiente">›</button>
+  </div>
+
+  <!-- ================= MODAL CARTA ================= -->
+  <div class="letter-modal" id="letter-modal">
+    <div class="letter-paper">
+      <div class="seal">❤</div>
+      <button class="letter-close" id="letter-close" aria-label="Cerrar">✕</button>
+      <h3 id="letter-title"></h3>
+      <p id="letter-text"></p>
+    </div>
+  </div>
+
+  <!-- Lluvia de corazones (mensaje final) -->
+  <div id="heart-rain"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/effects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
