@@ -1,0 +1,83 @@
+# Configuración global de AI Video Marketing Agent.
+# Puedes sobrescribir cualquier clave con un archivo `video-agent.yaml` en el
+# directorio de trabajo o con la variable de entorno VIDEO_AGENT_SETTINGS=/ruta.yaml
+
+workspace:
+  projects_dir: projects          # relativo al directorio de trabajo
+  copy_inputs: true               # copia los originales a input/ (nunca los modifica)
+
+render:
+  engine: ffmpeg                  # único motor implementado actualmente
+  video_codec: libx264
+  pix_fmt: yuv420p
+  crf: 20
+  preset: medium
+  intermediate_crf: 16
+  intermediate_preset: veryfast
+  audio_codec: aac
+  audio_bitrate: 192k
+  audio_sample_rate: 48000
+  threads: 0                      # 0 = automático
+  cache_segments: true            # reutiliza escenas ya renderizadas si no cambian
+
+audio:
+  loudness_lufs: -14              # objetivo de sonoridad integrada
+  true_peak_db: -1.5
+  music_volume_db: -6             # música sin voz
+  music_under_voice_db: -16       # nivel adicional cuando hay voz (ducking)
+  voice_volume_db: 0
+  clip_audio_volume_db: -3
+
+transcription:
+  engine: faster-whisper
+  # Nombre de modelo (tiny, base, small, medium, large-v3) o ruta local a un
+  # modelo CTranslate2. También puede definirse con VIDEO_AGENT_WHISPER_MODEL.
+  model: small
+  device: cpu
+  compute_type: int8
+
+tts:
+  provider: espeak                # espeak (local, gratis) | openai (de pago, requiere permiso)
+  espeak:
+    speed_wpm: 165
+    pitch: 45
+  openai:
+    model: gpt-4o-mini-tts
+    voice: alloy
+    usd_per_1k_chars: 0.015       # estimación configurable para el control de costes
+
+asset_search:
+  provider: local                 # local | pexels
+  local_dirs: [assets]
+
+limits:
+  max_duration_s: 600
+  max_input_file_mb: 4096
+  max_render_attempts: 3
+  max_estimated_cost_usd: 0.0     # 0 = no se permite ningún gasto sin cambiar este valor
+  max_variants: 10
+
+permissions:
+  # Todo lo que sale del equipo o cuesta dinero está desactivado por defecto.
+  allow_paid_apis: false
+  allow_external_uploads: false
+  allow_network_asset_search: false
+  allow_publish: false            # el agente nunca publica en cuentas reales
+  overwrite_originals: false
+
+qc:
+  duration_tolerance_s: 0.5
+  black_min_duration_s: 0.4
+  black_pixel_threshold: 0.10
+  silence_noise_db: -50
+  silence_min_duration_s: 1.5
+  freeze_min_duration_s: 2.5
+  av_sync_tolerance_s: 0.15
+  loudness_tolerance_lu: 2.5
+  preview_frames: 9
+
+fonts:
+  # Patrones fontconfig por orden de preferencia (fc-match). El primero disponible se usa.
+  title: ["Inter:style=Black", "Inter Display:style=Black", "DejaVu Sans:style=Bold", "Liberation Sans:style=Bold"]
+  body: ["Inter:style=SemiBold", "DejaVu Sans:style=Bold", "Liberation Sans:style=Bold"]
+  subtitle: ["Inter:style=ExtraBold", "DejaVu Sans:style=Bold", "Liberation Sans:style=Bold"]

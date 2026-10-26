@@ -1,0 +1,19 @@
+{
+  "name": "ai-video-marketing-agent",
+  "version": "0.1.0",
+  "description": "Agente de edición de vídeo y marketing: planifica, edita con FFmpeg, subtitula, revisa la calidad y exporta vídeos listos para TikTok, Reels, Shorts, YouTube y anuncios.",
+  "author": {
+    "name": "AI Video Marketing Agent contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "ffmpeg",
+    "marketing",
+    "tiktok",
+    "reels",
+    "shorts",
+    "subtitles"
+  ],
+  "icon": "./.claude-plugin/icon.png"
+}

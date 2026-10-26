@@ -1,0 +1,7 @@
+# Anuncio corto: gancho inmediato, propuesta de valor directa y CTA largo.
+name: vertical_ad
+beats:
+  - {purpose: hook,     weight: 0.14, min: 1.2, max: 2.5, copy: hook,     source: media, text_position: center}
+  - {purpose: solution, weight: 0.30, min: 2.5, max: 8.0, copy: solution, source: media, text_position: center}
+  - {purpose: benefits, weight: 0.34, min: 3.0, max: 10.0, copy: benefits, source: media, text_position: center, split: true}
+  - {purpose: cta,      weight: 0.22, min: 2.5, max: 5.0, copy: cta,      source: logo,  text_position: bottom}

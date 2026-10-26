@@ -1,0 +1,8 @@
+# Dependencias mínimas (modo local). Instala con: pip install -e .
+click>=8.1
+pydantic>=2.5
+PyYAML>=6.0
+numpy>=1.24
+Pillow>=10.0
+# Opcional, transcripción real de voz para subtítulos:
+# faster-whisper>=1.0

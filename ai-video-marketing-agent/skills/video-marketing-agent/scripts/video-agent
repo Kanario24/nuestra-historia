@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Lanzador del CLI `video-agent` para la skill.
+# 1) Usa la instalación de pip si existe en el PATH.
+# 2) Si no, ejecuta el código del repositorio clonado (la skill vive en <repo>/skills/...).
+set -euo pipefail
+
+if command -v video-agent >/dev/null 2>&1; then
+  exec video-agent "$@"
+fi
+
+SELF="$(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null || echo "${BASH_SOURCE[0]}")"
+REPO="$(cd "$(dirname "$SELF")/../../.." && pwd)"
+if [ ! -d "$REPO/src/video_agent" ]; then
+  echo "video-agent no está instalado y no se encuentra el repositorio junto a la skill." >&2
+  echo "Instala con: pip install -e /ruta/a/ai-video-marketing-agent" >&2
+  exit 127
+fi
+
+PY="${VIDEO_AGENT_PYTHON:-python3}"
+if [ -x "$REPO/.venv/bin/python" ]; then PY="$REPO/.venv/bin/python"; fi
+if ! "$PY" -c "import click, pydantic, yaml, PIL, numpy" >/dev/null 2>&1; then
+  echo "Faltan dependencias de Python. Ejecuta: $PY -m pip install -e '$REPO'" >&2
+  exit 1
+fi
+export VIDEO_AGENT_HOME="${VIDEO_AGENT_HOME:-$REPO}"
+PYTHONPATH="$REPO/src${PYTHONPATH:+:$PYTHONPATH}" exec "$PY" -m video_agent "$@"

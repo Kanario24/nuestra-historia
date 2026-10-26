@@ -1,0 +1,186 @@
+# Objetivos de marketing: adaptan gancho, estructura, ritmo y llamada a la acción.
+# {brand} se sustituye por el nombre de la marca/producto. Los textos son un punto
+# de partida profesional: el agente (Claude) debe reescribirlos para cada marca.
+# Nunca se promete viralidad ni resultados garantizados.
+
+goals:
+  leads:
+    label: Conseguir clientes
+    keywords: [cliente, clientes, leads, captar, ventas, contrat, presupuesto]
+    es:
+      hooks: ["¿Tu negocio sigue perdiendo clientes?", "Esto le falta a tu empresa", "Deja de perder oportunidades"]
+      problem: "Procesos lentos. Clientes que se van."
+      solution: "{brand} lo resuelve por ti"
+      benefits: ["Más clientes", "Menos trabajo manual", "Resultados medibles"]
+      cta: "Pide tu presupuesto"
+    en:
+      hooks: ["Is your business still losing clients?", "Your company is missing this", "Stop losing opportunities"]
+      problem: "Slow processes. Clients walking away."
+      solution: "{brand} fixes it for you"
+      benefits: ["More clients", "Less manual work", "Measurable results"]
+      cta: "Get your quote"
+  product:
+    label: Promocionar un producto
+    keywords: [producto, lanzamiento, nuevo, novedad, comprar, tienda, product, launch]
+    es:
+      hooks: ["Te presentamos {brand}", "Esto lo cambia todo", "Lo que estabas esperando"]
+      problem: "Lo de siempre ya no es suficiente."
+      solution: "{brand}: diseñado para ti"
+      benefits: ["Calidad premium", "Fácil de usar", "Listo para hoy"]
+      cta: "Consíguelo ahora"
+    en:
+      hooks: ["Meet {brand}", "This changes everything", "What you were waiting for"]
+      problem: "The usual is no longer enough."
+      solution: "{brand}: built for you"
+      benefits: ["Premium quality", "Easy to use", "Ready today"]
+      cta: "Get it now"
+  brand:
+    label: Presentar una marca
+    keywords: [marca, brand, presentar, conoce, quiénes somos, identidad, promocionar]
+    es:
+      hooks: ["Esto es {brand}", "Así trabajamos en {brand}", "Bienvenido a {brand}"]
+      problem: "Las ideas necesitan a alguien que las construya."
+      solution: "{brand} lo hace realidad"
+      benefits: ["Innovación", "Diseño", "Compromiso"]
+      cta: "Descubre {brand}"
+    en:
+      hooks: ["This is {brand}", "How we work at {brand}", "Welcome to {brand}"]
+      problem: "Ideas need someone to build them."
+      solution: "{brand} makes it real"
+      benefits: ["Innovation", "Design", "Commitment"]
+      cta: "Discover {brand}"
+  service:
+    label: Mostrar un servicio
+    keywords: [servicio, servicios, agencia, ofrecemos, desarrollo, consultor, service]
+    es:
+      hooks: ["¿Necesitas esto en tu negocio?", "Así trabajamos en {brand}", "Tu proyecto, en buenas manos"]
+      problem: "Tu proyecto merece algo más que una plantilla."
+      solution: "{brand}: soluciones a medida"
+      benefits: ["Desarrollo a medida", "Soporte cercano", "Entrega rápida"]
+      cta: "Hablemos de tu proyecto"
+    en:
+      hooks: ["Does your business need this?", "How we work at {brand}", "Your project, in good hands"]
+      problem: "Your project deserves more than a template."
+      solution: "{brand}: tailored solutions"
+      benefits: ["Custom development", "Close support", "Fast delivery"]
+      cta: "Let's talk about your project"
+  traffic:
+    label: Generar visitas a una web
+    keywords: [web, página, visitas, tráfico, enlace, link, website]
+    es:
+      hooks: ["Mira lo que puedes hacer en {brand}", "Todo en un solo lugar", "Te va a interesar"]
+      problem: "Buscar en mil sitios distintos cansa."
+      solution: "{brand} lo reúne todo"
+      benefits: ["Rápido", "Sencillo", "Gratis para empezar"]
+      cta: "Visita la web"
+    en:
+      hooks: ["See what you can do on {brand}", "Everything in one place", "You'll want to see this"]
+      problem: "Searching a thousand sites is tiring."
+      solution: "{brand} brings it together"
+      benefits: ["Fast", "Simple", "Free to start"]
+      cta: "Visit the website"
+  followers:
+    label: Conseguir seguidores
+    keywords: [seguidores, followers, comunidad, suscript, sígueme, follow]
+    es:
+      hooks: ["Nadie te cuenta esto", "Guarda este vídeo", "Parte 1:"]
+      problem: "Seguro que te ha pasado."
+      solution: "En {brand} lo explicamos claro"
+      benefits: ["Contenido nuevo cada semana", "Trucos reales", "Sin rodeos"]
+      cta: "Síguenos para más"
+    en:
+      hooks: ["Nobody tells you this", "Save this video", "Part 1:"]
+      problem: "You've probably been there."
+      solution: "At {brand} we keep it clear"
+      benefits: ["New content every week", "Real tips", "No fluff"]
+      cta: "Follow for more"
+  educational:
+    label: Contenido educativo
+    keywords: [aprende, tutorial, educativ, explica, cómo, guía, curso, learn]
+    es:
+      hooks: ["Aprende esto en 30 segundos", "3 claves que necesitas saber", "El error que todos cometen"]
+      problem: "La mayoría lo hace mal."
+      solution: "La forma correcta, paso a paso"
+      benefits: ["Paso 1: entiende el problema", "Paso 2: aplica el método", "Paso 3: mide el resultado"]
+      cta: "Guárdalo para después"
+    en:
+      hooks: ["Learn this in 30 seconds", "3 keys you need to know", "The mistake everyone makes"]
+      problem: "Most people get it wrong."
+      solution: "The right way, step by step"
+      benefits: ["Step 1: understand the problem", "Step 2: apply the method", "Step 3: measure"]
+      cta: "Save it for later"
+  community:
+    label: Promocionar una comunidad
+    keywords: [comunidad, discord, grupo, servidor, únete, community, miembros]
+    es:
+      hooks: ["Buscamos gente como tú", "Únete a {brand}", "No estás solo en esto"]
+      problem: "Aprender solo es más difícil."
+      solution: "En {brand} crecemos juntos"
+      benefits: ["Eventos semanales", "Ayuda real", "Gente con tus intereses"]
+      cta: "Únete gratis"
+    en:
+      hooks: ["We're looking for people like you", "Join {brand}", "You're not alone in this"]
+      problem: "Learning alone is harder."
+      solution: "At {brand} we grow together"
+      benefits: ["Weekly events", "Real help", "Like-minded people"]
+      cta: "Join for free"
+  ad:
+    label: Anuncio
+    keywords: [anuncio, publicidad, ads, campaña, ad, promoción, oferta, descuento]
+    es:
+      hooks: ["Para. Mira esto.", "Oferta por tiempo limitado", "Lo necesitas"]
+      problem: "¿Cansado de lo mismo?"
+      solution: "{brand} es la respuesta"
+      benefits: ["Ahorra tiempo", "Ahorra dinero", "Empieza hoy"]
+      cta: "Pruébalo hoy"
+    en:
+      hooks: ["Stop. Watch this.", "Limited-time offer", "You need this"]
+      problem: "Tired of the same old?"
+      solution: "{brand} is the answer"
+      benefits: ["Save time", "Save money", "Start today"]
+      cta: "Try it today"
+  tech_product:
+    label: Producto tecnológico
+    keywords: [saas, app, plataforma, software, ia, inteligencia artificial, startup, tecnológico]
+    es:
+      hooks: ["El futuro ya está aquí", "Automatiza lo que hoy haces a mano", "Tu equipo, 10 veces más rápido"]
+      problem: "Demasiadas tareas repetitivas."
+      solution: "{brand} lo automatiza"
+      benefits: ["Integración sencilla", "Seguro y escalable", "Resultados en días"]
+      cta: "Solicita una demo"
+    en:
+      hooks: ["The future is here", "Automate what you do by hand", "Your team, 10x faster"]
+      problem: "Too many repetitive tasks."
+      solution: "{brand} automates it"
+      benefits: ["Easy integration", "Secure and scalable", "Results in days"]
+      cta: "Request a demo"
+  gaming:
+    label: Contenido de videojuegos
+    keywords: [gaming, videojuego, partida, clip, gameplay, stream, esports]
+    es:
+      hooks: ["No te vas a creer esta jugada", "Nivel: imposible", "Mira hasta el final"]
+      problem: "Todos pensaban que estaba perdido…"
+      solution: "Hasta que pasó esto"
+      benefits: ["Reflejos", "Estrategia", "Victoria"]
+      cta: "Síguenos para más clips"
+    en:
+      hooks: ["You won't believe this play", "Difficulty: impossible", "Watch till the end"]
+      problem: "Everyone thought it was over…"
+      solution: "Until this happened"
+      benefits: ["Reflexes", "Strategy", "Victory"]
+      cta: "Follow for more clips"
+  local_business:
+    label: Negocio local
+    keywords: [local, barrio, restaurante, tienda, peluquer, cafetería, clínica, taller, ciudad]
+    es:
+      hooks: ["El secreto mejor guardado de tu ciudad", "¿Ya conoces {brand}?", "Esto está a la vuelta de la esquina"]
+      problem: "Buscas calidad cerca de casa."
+      solution: "{brand}, tu sitio de confianza"
+      benefits: ["Trato cercano", "Calidad de verdad", "Precios justos"]
+      cta: "Ven a visitarnos"
+    en:
+      hooks: ["Your city's best-kept secret", "Have you met {brand}?", "It's right around the corner"]
+      problem: "You want quality close to home."
+      solution: "{brand}, the place you trust"
+      benefits: ["Personal service", "Real quality", "Fair prices"]
+      cta: "Come visit us"

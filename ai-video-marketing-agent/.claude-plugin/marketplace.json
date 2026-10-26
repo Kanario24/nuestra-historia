@@ -1,0 +1,14 @@
+{
+  "name": "ai-video-marketing-agent",
+  "description": "Marketplace de un solo plugin: agente de edición de vídeo y marketing para Claude Code.",
+  "owner": {
+    "name": "AI Video Marketing Agent contributors"
+  },
+  "plugins": [
+    {
+      "name": "ai-video-marketing-agent",
+      "source": "./",
+      "description": "Skill video-marketing-agent: crea, edita, subtitula, revisa y exporta vídeos de marketing con FFmpeg."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+name: reels_promo
+beats:
+  - {purpose: hook,     weight: 0.12, min: 1.5, max: 3.0, copy: hook,     source: media, text_position: center}
+  - {purpose: problem,  weight: 0.16, min: 2.0, max: 6.0, copy: problem,  source: media, text_position: center}
+  - {purpose: solution, weight: 0.26, min: 3.0, max: 9.0, copy: solution, source: media, text_position: lower_third}
+  - {purpose: benefits, weight: 0.30, min: 3.0, max: 12.0, copy: benefits, source: media, text_position: center, split: true}
+  - {purpose: cta,      weight: 0.16, min: 2.5, max: 5.0, copy: cta,      source: logo,  text_position: bottom}

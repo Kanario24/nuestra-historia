@@ -1,0 +1,89 @@
+# Presets de exportación por plataforma.
+# IMPORTANTE: las recomendaciones de las plataformas cambian. Comprueba la
+# documentación vigente de cada red antes de depender de estos valores; todos
+# son editables. safe_zone = fracción del lienzo que suele quedar tapada por la
+# interfaz de la app (botones, descripción, barra de progreso).
+
+tiktok:
+  label: TikTok
+  width: 1080
+  height: 1920
+  fps: 30
+  aspect: "9:16"
+  default_duration: 25
+  max_duration: 600
+  safe_zone: {top: 0.10, bottom: 0.22, left: 0.06, right: 0.15}
+  hook_seconds: 2.0
+  template: tiktok/promo.yaml
+
+instagram_reels:
+  label: Instagram Reels
+  width: 1080
+  height: 1920
+  fps: 30
+  aspect: "9:16"
+  default_duration: 25
+  max_duration: 180
+  safe_zone: {top: 0.12, bottom: 0.20, left: 0.06, right: 0.12}
+  hook_seconds: 2.0
+  template: instagram_reels/promo.yaml
+
+youtube_shorts:
+  label: YouTube Shorts
+  width: 1080
+  height: 1920
+  fps: 30
+  aspect: "9:16"
+  default_duration: 30
+  max_duration: 180
+  safe_zone: {top: 0.10, bottom: 0.18, left: 0.06, right: 0.14}
+  hook_seconds: 2.5
+  template: youtube_shorts/promo.yaml
+
+youtube:
+  label: YouTube (horizontal)
+  width: 1920
+  height: 1080
+  fps: 30
+  aspect: "16:9"
+  default_duration: 60
+  max_duration: 3600
+  safe_zone: {top: 0.06, bottom: 0.12, left: 0.05, right: 0.05}
+  hook_seconds: 4.0
+  template: youtube/promo.yaml
+
+ad_vertical:
+  label: Anuncio vertical
+  width: 1080
+  height: 1920
+  fps: 30
+  aspect: "9:16"
+  default_duration: 15
+  max_duration: 60
+  safe_zone: {top: 0.12, bottom: 0.22, left: 0.06, right: 0.12}
+  hook_seconds: 1.5
+  template: advertisements/ad.yaml
+
+square:
+  label: Feed cuadrado
+  width: 1080
+  height: 1080
+  fps: 30
+  aspect: "1:1"
+  default_duration: 20
+  max_duration: 600
+  safe_zone: {top: 0.06, bottom: 0.10, left: 0.06, right: 0.06}
+  hook_seconds: 2.0
+  template: tiktok/promo.yaml
+
+landscape:
+  label: Horizontal genérico 16:9
+  width: 1920
+  height: 1080
+  fps: 30
+  aspect: "16:9"
+  default_duration: 30
+  max_duration: 3600
+  safe_zone: {top: 0.06, bottom: 0.10, left: 0.05, right: 0.05}
+  hook_seconds: 3.0
+  template: youtube/promo.yaml
